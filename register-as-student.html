@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register As Student</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style-register-student.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <a href="index.html" class="back-button">← Back</a>
+
+        <form action="send-student-email.php" method="POST">
+            <label for="name">Your Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Your Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="postal-code">Postal Code:</label>
+            <input type="text" id="postal-code" name="postal_code" required>
+
+            <label for="student">Are You a Student?:</label>
+            <select id="student" name="student" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="school">What school do you go to?</label>
+            <input type="text" id="school" name="school" required>
+
+            <label>What Equipment do you have?</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="equipment[]" value="Lawn Mower"> Lawn Mower</label>
+                <label><input type="checkbox" name="equipment[]" value="Weed Whacker"> Weed Whacker</label>
+                <label><input type="checkbox" name="equipment[]" value="Leaf Blower"> Leaf Blower</label>
+                <label><input type="checkbox" name="equipment[]" value="Power Washer"> Power Washer</label>
+                <label><input type="checkbox" name="equipment[]" value="Hedge Trimmer"> Hedge Trimmer</label>
+                <label><input type="checkbox" name="equipment[]" value="Rake"> Rake</label>
+                <label><input type="checkbox" name="equipment[]" value="Snow Shovel"> Snow Shovel</label>
+            </div>
+
+            <label for="additional-info">Additional Information (optional):</label>
+            <textarea id="additional-info" name="additional_info" rows="4"></textarea>
+
+            <div class="g-recaptcha" data-sitekey="6LfSTZYqAAAAAPRY3GwEyOMVeIpMfSr5RYcgdv7f"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Quote</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="stylesheet" href="style-book-quote.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="form-container">
+        <a href="index.html" class="back-button">← Back</a>
+
+        <form action="send-quote-email.php" method="POST" enctype="multipart/form-data">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Your Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="postal-code">Postal Code:</label>
+            <input type="text" id="postal-code" name="postal_code" required>
+
+            <label for="service">Type of Service:</label>
+            <select id="service" name="service" required>
+                <option value="" selected disabled>Choose an option</option>
+                <option value="Lawn mowing">Lawn mowing</option>
+                <option value="Weeding/Gardening">Weeding/Gardening</option>
+                <option value="Leaf Cleanup">Leaf Cleanup</option>
+                <option value="Snow Removal">Snow Removal</option>
+                <option value="Power washing">Power washing</option>
+                <option value="Painting/Staining">Painting/Staining</option>
+                <option value="Hedge Trimming">Hedge Trimming</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div id="bag-clippings-question" class="hidden">
+                <label>Would you like the student to bag the grass clippings?</label>
+                <select id="bag-clippings" name="bag_clippings">
+                    <option value="" selected disabled>Choose an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div id="provide-bags-question" class="hidden">
+                <label>Will you be providing bags? (If no, you will be charged $2 per bag the student uses)</label>
+                <select id="provide-bags" name="provide_bags">
+                    <option value="" selected disabled>Choose an option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <label for="tools">What tools are you able to provide to the student? (Leave blank if you can't provide any):</label>
+            <textarea id="tools" name="tools" rows="2" placeholder="E.g., lawn mower, rake, leaf blower"></textarea>
+
+            <label for="referral">How did you find out about us?</label>
+            <select id="referral" name="referral" required>
+                <option value="Flyer in the Mail">Flyer in the Mail</option>
+                <option value="Facebook Ad">Facebook Ad</option>
+                <option value="Nextdoor">Nextdoor</option>
+                <option value="Referral / From a friend">Referral / From a friend</option>
+                <option value="Google">Google</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="message">Additional Message (optional):</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <label for="photo">Upload a Photo (optional):</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+
+            <div class="g-recaptcha" data-sitekey="6LfSTZYqAAAAAPRY3GwEyOMVeIpMfSr5RYcgdv7f"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="submission-message" class="hidden">Thank you for your submission!</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

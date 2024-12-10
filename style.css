@@ -1,0 +1,767 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.logo {
+    width: 300px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.for-students {
+    appearance: none;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-sizing: border-box;
+    color: #010101;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 200px;
+    will-change: transform;
+}
+    
+.for-students:hover {
+    color: #000000;
+    background-color: #9af5ae;
+    transform: translateY(-2px);
+  }
+  
+.for-students:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+.get-quote {
+    appearance: none;
+    background-color: #066129;
+    border-radius: 25px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 60px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 180px;
+    will-change: transform;
+}
+
+  .get-quote:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    transform: translateY(-2px);
+  }
+  
+  .get-quote:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 100;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.mobile-menu .hamburger {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    visibility: visible;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.menu-button {
+    width: calc(100% - 40px);
+    max-width: 400px;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #066129;
+    color: white;
+    font-size: 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #044a1e;
+    transform: scale(1.05);
+}
+
+.menu-social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.menu-social-icons a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.hamburger {
+    position: relative;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    background: #066129;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 400ms cubic-bezier(.2, 0, .7, 1), transform 200ms cubic-bezier(.2, 0, .7, 1);
+    cursor: pointer;
+}
+
+.hamburger.visible {
+    visibility: visible;
+}
+
+.hamburger span {
+    width: 27px;
+    height: 3.5px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger span:not(:last-child) {
+    margin-bottom: 6px;
+}
+
+.hamburger:hover {
+    box-shadow: 0 0 1px 15px rgba(4, 58, 18, 0.4),
+        0 0 1px 30px rgba(3, 37, 14, 0.1),
+        0 0 1px 45px rgba(3, 11, 4, 0.1);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-color: #f1f4f5;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.text-content {
+    margin-top: 100px;
+    max-width: 500px;
+    transform: translateY(-30%);
+}
+
+.text-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.text-content .highlight {
+    color: #00aaff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+.free-quote {
+    appearance: none;
+    background-color: #066129;
+    border-radius: 25px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 30px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 180px;
+    will-change: transform;
+}
+  
+  .free-quote:hover {
+    color: #ffffff;
+    background-color: #1A1A1A;
+    transform: translateY(-2px);
+  }
+  
+  .free-quote:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+.mowing-image {
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+
+}
+
+
+footer {
+    margin-top: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+}
+
+
+.support-student {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    gap: 40px;
+    flex-direction: row;
+}
+
+.support-student .content {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.support-student h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.support-student p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.quote-button {
+    appearance: none;
+    background-color: #066129;
+    border-radius: 25px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 30px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 180px;
+    will-change: transform;
+}
+
+.quote-button:hover {
+    color: #ffffff;
+    background-color: #1A1A1A;
+    transform: translateY(-2px);
+}
+
+.quote-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.support-student .image {
+    flex-shrink: 0;
+}
+
+.support-student .image img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 50px 20px;
+    background-color: #f1f4f5;
+    text-align: left;
+}
+
+.feature-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-left: 6px solid #00796b;
+    max-width: 100%;
+}
+
+.feature-icon {
+    width: 50px;
+    margin-bottom: 20px;
+    float: left;
+    margin-right: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.8rem;
+    color: #00796b;
+    margin-bottom: 5px;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+.rate-service {
+    background-color: #f1f4f5;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.rate-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rate-service h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.rate-service p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.rate-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #066129;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.rate-button:hover {
+    background-color: #044a1e;
+}
+
+.register-student {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    gap: 40px;
+    flex-direction: row;
+}
+
+.register-student .content {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.register-student h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.register-student p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.register-button {
+    appearance: none;
+    background-color: #066129;
+    border-radius: 25px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    min-height: 30px;
+    padding: 16px 24px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 180px;
+    will-change: transform;
+}
+
+.register-button:hover {
+    color: #ffffff;
+    background-color: #1A1A1A;
+    transform: translateY(-2px);
+}
+
+.register-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.register-student .image {
+    flex-shrink: 0;
+}
+
+.register-student .image img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.feature-card, button, img, h1, h2, h3, p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.feature-card.animate-feature-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+button:hover {
+    background-color: #044a1e;
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+
+@media (max-width: 1100px) {
+    .mowing-image {
+        width: 500px;
+    }
+
+    .register-student .image img {
+        width: 300px;
+    }
+
+    .mobile-menu {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .mowing-image {
+        width: 500px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+        margin-bottom: 25px;
+        transform: translateY(5%);
+        margin-top: 1px;
+    }
+
+    .image-content {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        transform: translateY(-10%);
+    }
+
+    .register-student .image img {
+        width: 300px;
+    }
+
+    .mobile-menu {
+        width: 50%;
+    }
+}
+
+
+/* Mobile Device Styles */
+@media (max-width: 768px) {
+    .header-buttons {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .header-buttons.menu-open {
+        display: flex;
+    }
+    
+    header {
+        flex-direction: row;
+        text-align: right;
+        margin-top: 0px;
+    }
+
+    .logo {
+        width: 200px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-content {
+        max-width: 100%;
+        margin-bottom: 25px;
+        transform: translateY(5%);
+    }
+
+    .text-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .free-quote {
+        font-size: 1.2rem;
+        margin-top: -20px;
+    }
+
+    .image-content {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        transform: translateY(-10%);
+    }
+
+    .mowing-image {
+        width: 400px;
+    }
+
+    .support-student {
+        flex-direction: column;
+    }
+    
+    .support-student.content {
+        flex-direction: column;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .register-student {
+        flex-direction: column;
+    }
+
+    .register-student .image img {
+        width: 230px;
+    }
+
+    .mobile-menu {
+        width: 50%;
+    }
+}
+
+
+@media (max-width: 624px) {
+    .support-student .image img {
+        width: 230px;
+    }
+
+    .mowing-image {
+        width: 250px;
+    }
+
+    
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mobile-menu {
+        width: 75%;
+    }
+}
