@@ -1,5 +1,3 @@
-print("hello world")
-
 // Toggles a hamburger menu when in on mobile or window size is too small
 function toggleMenu() {
     const mobileMenu = document.querySelector('.mobile-menu');
